@@ -48,7 +48,7 @@ class CarouselSection extends Component {
   render() {
     return (
       <React.Fragment>
-        <SectionLegend title="Popular" subtitle="5 Events" />
+        <SectionLegend title="Popular Events" subtitle="5 Events" />
         <Carousel
           data={this.state.PopularEvents}
           style={{ margin: 15 }}

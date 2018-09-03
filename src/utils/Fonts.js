@@ -5,7 +5,8 @@ const Fonts = {
   MPR_medium: require("../assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Medium.ttf"),
   MPR_bold: require("../assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Bold.ttf"),
   MPR_extraBold: require("../assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-ExtraBold.ttf"),
-  MPR_black: require("../assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Black.ttf")
+  MPR_black: require("../assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Black.ttf"),
+  "ticketing-icon": require("../assets/fonts/ticketing-icon/fonts/ticketing-icon.ttf")
 };
 
 export { Fonts };
