@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, Platform } from "react-native";
 import { Header, Body, Right, Title, Button, Icon } from "native-base";
+import { Colors } from "../utils";
 
-export class MainHeader extends Component {
+class MainHeader extends Component {
   render() {
     const { header, icon, btn } = style;
 
@@ -27,11 +28,11 @@ export class MainHeader extends Component {
   }
 }
 
-export default MainHeader;
+export { MainHeader };
 
 const style = StyleSheet.create({
   header: {
-    backgroundColor: "#774CEB",
+    backgroundColor: Colors.primary,
     ...Platform.select({
       android: {
         paddingTop: 24,

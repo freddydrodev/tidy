@@ -4,7 +4,7 @@ import { View } from "react-native";
 import { Spinner } from "native-base";
 import { Font } from "expo";
 import { HomeScreen, LoginScreen, RegistrationScreen } from "./src/screens";
-import { Fonts } from "./src/utils";
+import { Fonts, Colors } from "./src/utils";
 
 const Routes = createBottomTabNavigator(
   {
@@ -39,7 +39,7 @@ export default class App extends Component {
       <Routes />
     ) : (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Spinner />
+        <Spinner color={Colors.primary} />
       </View>
     );
   }

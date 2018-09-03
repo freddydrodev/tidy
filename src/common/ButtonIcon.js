@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, Button, Icon } from "native-base";
 
-export class ButtonIcon extends Component {
+class ButtonIcon extends Component {
   render() {
     const {
       name,
