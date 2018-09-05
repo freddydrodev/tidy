@@ -4,6 +4,7 @@ import { Colors } from "../utils";
 import { MainHeader } from "../common";
 import CarouselSection from "../components/home/CarouselSection/CarouselSection";
 import CategoriesSection from "../components/home/CategoriesSection/CategoriesSection";
+import EventsSection from "../components/home/EventsSection/EventsSection";
 
 class HomeScreen extends Component {
   render() {
@@ -13,11 +14,8 @@ class HomeScreen extends Component {
         <Content>
           <CarouselSection />
           <CategoriesSection />
+          <EventsSection />
         </Content>
-        {/* <Content>
-          <CarouselSection />
-          <CategoriesSection />
-        </Content> */}
       </Container>
     );
   }

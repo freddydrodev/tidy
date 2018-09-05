@@ -4,9 +4,11 @@ import { Card, View, CardItem, Title, Subtitle } from "native-base";
 import Carousel from "react-native-snap-carousel";
 import { createIconSetFromIcoMoon } from "react-native-vector-icons";
 import { SectionLegend } from "../../../common";
-import { Sizes, Colors } from "../../../utils";
+import { Sizes, Colors, Resets } from "../../../utils";
 import Selection from "../../../assets/fonts/ticketing-icon/selection.json";
+
 const Icon = createIconSetFromIcoMoon(Selection);
+const { spaceMD, setHorizontalMargin, setMargin, setPadding, textSM } = Resets;
 
 class CategoriesSection extends Component {
   state = {
@@ -26,8 +28,9 @@ class CategoriesSection extends Component {
         <SectionLegend title="Events Categories" subtitle="5 Categories" />
         <Carousel
           data={categories}
-          sliderWidth={Sizes.winWidth}
-          itemWidth={Sizes.winWidth * 0.5 - 15}
+          sliderWidth={Sizes.carouselSlideWidth}
+          containerCustomStyle={{ ...setHorizontalMargin() }}
+          itemWidth={Sizes.winWidth * 0.5 - spaceMD}
           inactiveSlideOpacity={0.5}
           activeSlideAlignment="start"
           onSnapToItem={id => {
@@ -46,7 +49,13 @@ class CategoriesSection extends Component {
             const titleStyle = active ? titleAct : title;
             const subtitleStyle = active ? subtitleAct : subtitle;
             return (
-              <Card>
+              <Card
+                style={{
+                  ...setMargin(null),
+                  backgroundColor: "white",
+                  ...setPadding(null)
+                }}
+              >
                 <CardItem style={itemStyle} button>
                   <View style={{ marginRight: 15 }}>
                     <Icon
@@ -78,7 +87,8 @@ const defaults = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    height: 100
+    height: 100,
+    backgroundColor: "white"
   },
   title: {
     color: Colors.text,
@@ -89,7 +99,7 @@ const defaults = StyleSheet.create({
     color: Colors.textFade,
     textAlign: "left",
     fontFamily: "MPR_light",
-    fontSize: 12
+    fontSize: textSM
   },
   itemAct: {
     flexDirection: "row",
@@ -108,7 +118,7 @@ const defaults = StyleSheet.create({
     color: Colors.textFade,
     textAlign: "left",
     fontFamily: "MPR_light",
-    fontSize: 12,
+    fontSize: textSM,
     color: "white",
     opacity: 0.5
   }
