@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { StyleSheet, Platform } from "react-native";
 import { Header, Body, Right, Title, Button, Icon } from "native-base";
-import { Colors } from "../utils";
+import { Colors, Resets } from "../utils";
 
+const {
+  setHorizontalPadding,
+  squared,
+  setPadding,
+  setPosition,
+  setHorizontalMargin
+} = Resets;
 class MainHeader extends Component {
   render() {
     const { header, icon, btn } = style;
@@ -37,24 +44,20 @@ const style = StyleSheet.create({
       android: {
         paddingTop: 24,
         height: 80,
-        paddingHorizontal: 15
+        ...setHorizontalPadding()
       }
     })
   },
   btn: {
-    width: 45,
-    height: 45,
-    padding: 0,
-    marginRight: 0,
-    alignItems: "center",
-    justifyContent: "center"
+    ...squared(40),
+    ...setPadding(null),
+    ...setPosition(),
+    marginRight: 0
   },
   icon: {
-    marginLeft: 0,
+    ...setPosition(),
+    ...setHorizontalMargin(null),
     fontSize: 22,
-    width: 22,
-    marginRight: 0,
-    alignItems: "center",
-    justifyContent: "center"
+    width: 22
   }
 });

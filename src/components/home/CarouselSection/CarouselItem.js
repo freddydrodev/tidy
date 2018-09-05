@@ -2,8 +2,18 @@ import React, { Component } from "react";
 import { Image, StyleSheet } from "react-native";
 import { Text, Card, CardItem, Button, Icon, H1, H3 } from "native-base";
 import { LinearGradient } from "expo";
-import { Colors } from "../../../utils";
+import { Resets } from "../../../utils";
 
+const {
+  setPadding,
+  fill,
+  setRadius,
+  setBorderWidth,
+  textMD,
+  textSM,
+  textXL,
+  spaceMD
+} = Resets;
 const height = 300;
 class CarouselItem extends Component {
   render() {
@@ -37,29 +47,17 @@ class CarouselItem extends Component {
 
 export default CarouselItem;
 
-const fill = {
-  width: null,
-  height: null,
-  flex: 1
-};
-const noPadding = {
-  paddingLeft: null,
-  paddingTop: null,
-  paddingBottom: null,
-  paddingRight: null
-};
-
 const style = StyleSheet.create({
   main: {
     height,
     backgroundColor: "white",
-    elevation: 5,
-    borderRadius: 5,
-    borderColor: "transparent"
+    elevation: 2,
+    ...setRadius(3),
+    ...setBorderWidth(null)
   },
   item: {
     ...fill,
-    ...noPadding
+    ...setPadding(null)
   },
   gradient: {
     ...fill,
@@ -69,9 +67,9 @@ const style = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 100,
-    padding: 15,
+    padding: spaceMD,
     overflow: "hidden",
-    borderRadius: 5,
+    ...setRadius(3),
     justifyContent: "flex-end"
   },
   wish: {
@@ -82,22 +80,22 @@ const style = StyleSheet.create({
   h1: {
     color: "white",
     fontFamily: "MPR_black",
-    fontSize: 18
+    fontSize: textXL
   },
   h3: {
     color: "white",
     fontFamily: "MPR_medium",
-    fontSize: 14
+    fontSize: textMD
   },
   textSm: {
     color: "white",
     opacity: 0.6,
-    fontSize: 12,
+    fontSize: textSM,
     fontFamily: "MPR_light"
   },
   img: {
     ...fill,
     height,
-    borderRadius: 5
+    borderRadius: 3
   }
 });

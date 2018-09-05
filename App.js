@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { createBottomTabNavigator } from "react-navigation";
-import { View } from "react-native";
-import { Spinner } from "native-base";
+import { View, Spinner, Icon } from "native-base";
 import { Font } from "expo";
 import { HomeScreen, LoginScreen, RegistrationScreen } from "./src/screens";
 import { Fonts, Colors } from "./src/utils";
@@ -9,13 +8,58 @@ import { Fonts, Colors } from "./src/utils";
 const Routes = createBottomTabNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: HomeScreen,
+      navigationOptions: {
+        title: "Home",
+        tabBarIcon: ({ focused, tintColor }) => (
+          <Icon
+            type="Feather"
+            name="home"
+            color={tintColor}
+            style={{ fontSize: 18, color: tintColor }}
+          />
+        )
+      }
     },
-    Login: LoginScreen,
-    registration: RegistrationScreen
+    Events: {
+      screen: LoginScreen,
+      navigationOptions: {
+        title: "Events",
+        tabBarIcon: ({ focused, tintColor }) => (
+          <Icon
+            type="Feather"
+            name="list"
+            color={tintColor}
+            style={{ fontSize: 18, color: tintColor }}
+          />
+        )
+      }
+    },
+    Calendar: {
+      screen: RegistrationScreen,
+      screen: LoginScreen,
+      navigationOptions: {
+        title: "Calendar",
+        tabBarIcon: ({ focused, tintColor }) => (
+          <Icon
+            type="Feather"
+            name="calendar"
+            color={tintColor}
+            style={{ fontSize: 18, color: tintColor }}
+          />
+        )
+      }
+    }
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Home",
+    tabBarOptions: {
+      activeTintColor: Colors.secondary,
+      inactiveTintColor: Colors.textFade,
+      activeBackgroundColor: "white",
+      inactiveBackgroundColor: "white",
+      style: { borderTopColor: "#eee" }
+    }
   }
 );
 

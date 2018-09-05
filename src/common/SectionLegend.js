@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import { Text, View, H1 } from "native-base";
 import { StyleSheet } from "react-native";
-import { Colors } from "../utils";
+import { Colors, Resets } from "../utils";
+
+const {
+  setRadius,
+  squared,
+  textSM,
+  setVerticalPadding,
+  textLG,
+  spaceMD,
+  spaceXS
+} = Resets;
 
 class SectionLegend extends Component {
   render() {
@@ -27,27 +37,25 @@ const style = StyleSheet.create({
   main: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 15,
-    backgroundColor: "#F9FBFF"
+    ...setVerticalPadding()
   },
   h1: {
-    paddingLeft: 15,
-    paddingRight: 5,
+    paddingLeft: spaceMD,
+    paddingRight: spaceXS,
     color: Colors.text,
     fontFamily: "MPR_black",
-    fontSize: 16,
+    fontSize: textLG,
     color: Colors.secondary
   },
   dot: {
     backgroundColor: Colors.textFade,
-    width: 4,
-    height: 4,
-    borderRadius: 2,
-    marginRight: 5
+    ...squared(4),
+    ...setRadius(2),
+    marginRight: spaceXS
   },
   textSm: {
     color: Colors.textFade,
-    fontSize: 12,
+    fontSize: textSM,
     fontFamily: "MPR"
   }
 });
